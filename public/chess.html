@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chess on express</title>
+  </head>
+  <body>
+    <h1>Тут будут шахматы</h1>
+    <div class="board">
+      <div class="cell" data-x="1" data-y="4"></div>
+      <div class="cell" data-x="2" data-y="4"></div>
+    </div>
+    <script>
+      for (let x = 0; x < 8; x++) {
+        for (let y = 0; y < 8; y++) {
+          let cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.dataset.x = x;
+          cell.dataset.y = y;
+          document.querySelector('.board').appendChild(cell);
+        }
+      }
+
+      const cell1 = document.querySelector('.cell[data-x=1][data-y=1]');
+      const cell2 = document.querySelector('.cell[data-x=1][data-y=8]');
+      const cell3 = document.querySelector('.cell[data-x=8][data-y=1]');
+      const cell4 = document.querySelector('.cell[data-x=8][data-y=1]');
+      const rookCells = [cell1, cell2, cell3, cell4];
+      for (const cell of rookCells) {
+        cell.innerHTML = '♜';
+      }
+
+
+      const pawnCells = document.querySelectorAll('.cell[data-y=2]');
+      for (const cell of pawnCells) {
+        cell.innerHTML = '♟';
+      }
+    </script>
+  </body>
+</html>
